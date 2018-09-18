@@ -8,14 +8,18 @@
     </li>
   </ul>
 </header>
-
+<%
+  posts = 
+  ["今日からProgateでRailsの勉強するよー！!!",
+  "投稿一覧ページ作成中！"
+    ]
+%>
 <div class="main posts-index">
   <div class="container">
-    <div class="posts-index-item">
-      今日からProgateでRailsの勉強するよー！
+  <% posts.each do |post| %>
+  <div class="posts-index-item">
+    <%= post %>
     </div>
-    <div class="posts-index-item">
-      投稿一覧ページ作成中！
-    </div>
+  <% end %>
   </div>
 </div>
