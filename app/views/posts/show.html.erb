@@ -2,6 +2,14 @@
   <div class="container">
     <div class="posts-show-item">
       <p><%= "idが「#{@id}」の投稿詳細画面です" %></p>
+      <p>
+        <%= @post.content %>
+      </p>
+      <div class="post-time">
+        <!-- @postのcreated_atカラムのデータを表示してください -->
+        <%= @post.created_at %>
+      </div>
+
     </div>
   </div>
 </div>
