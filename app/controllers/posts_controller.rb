@@ -26,9 +26,11 @@ class PostsController < ApplicationController
 
     @post = Post.find_by(id: id)
     @post.content = content
-    @post.save
-
-    redirect_to('/posts/index')
+    if @post.save
+      redirect_to('/posts/index')
+    else
+      render('posts/edit')
+    end
   end
 
   def destroy
