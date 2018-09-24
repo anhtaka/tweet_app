@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: id)
     @post.content = content
     if @post.save
+      flash[:notice] = "投稿を編集しました"
       redirect_to('/posts/index')
     else
       render('posts/edit')
