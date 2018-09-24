@@ -21,6 +21,13 @@ class PostsController < ApplicationController
   end
 
   def update
+    id = params[:id]
+    content = params[:content]
+
+    @post = Post.find_by(id: id)
+    @post.content = content
+    @post.save
+
     redirect_to('/posts/index')
   end
 end
