@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'users/index'
+  post 'users/create' => 'users#create'
   get 'users/:id' => 'users#show'
+  get 'signup' => 'users#new'
+
+
   get 'posts/index'
   get '/' => 'home#top'
   get 'top' => 'home#top'
