@@ -50,6 +50,8 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email],password: params[:password])
     # @userが存在するかどうかを判定するif文を作成してください
     if @user
+
+      session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to("/posts/index")
     else
@@ -57,7 +59,7 @@ class UsersController < ApplicationController
 
       @email = params[:email]
       @password = params[:password]
-      
+
       render("users/login_form")
     end
   end
