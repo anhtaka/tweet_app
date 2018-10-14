@@ -58,5 +58,5 @@ class PostsController < ApplicationController
       flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
-
+  end
 end
