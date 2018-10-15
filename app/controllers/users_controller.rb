@@ -53,9 +53,9 @@ class UsersController < ApplicationController
 
   def login
     # 入力内容と一致するユーザーを取得し、変数@userに代入してください
-    @user = User.find_by(email: params[:email],password: params[:password])
+    @user = User.find_by(email: params[:email])
     # @userが存在するかどうかを判定するif文を作成してください
-    if @user
+    if @user && @user.authenticate(params[:password])
 
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
