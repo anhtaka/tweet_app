@@ -10,6 +10,10 @@
       <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
     </div>
+    <ul class="user-tabs">
+      <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
+      <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+    </ul>
     <!-- 以下の<% %>を使ってeach文を追加してください -->
     <% @user.posts.each do |post| %>
     <!-- 指定されたコードを貼り付けてください -->

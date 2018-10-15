@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   post "logout" => "users#logout"
   get "login" => "users#login_form"
-
+  get "users/:id/likes" => "users#likes"
+  
   get 'posts/index'
   get '/' => 'home#top'
   get 'top' => 'home#top'

@@ -85,4 +85,8 @@ class UsersController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
+  def likes
+  end
+  
 end
