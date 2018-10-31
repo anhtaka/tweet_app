@@ -90,5 +90,26 @@ class UsersController < ApplicationController
     @user = User.find_by(id: @current_user.id)
     @like = Like.where(user_id: params[:id])
   end
-  
+
+  def change_password
+    # 入力内容と一致するユーザーを取得し、変数@userに代入してください
+    @user = User.find_by(id: @current_user.id)
+    # @userが存在するかどうかを判定するif文を作成してください
+    if @user && @user.authenticate(params[:password])
+      password1 = params[:password1]
+      password2 = params[:password2]
+      if password1 == password2
+        # パスワードの変更
+        
+        flash[:notice] = "パスワードが変更されました。"
+        redirect_to("/users/#{@user.id}")
+      else
+        flash[:notice] = "パスワードが一致しません。"
+        redirect_to("/change_password")
+      end
+    else
+      flash[:notice] = "パスワードが正しくありません。"
+      redirect_to("/change_password")
+    end
+  end
 end
