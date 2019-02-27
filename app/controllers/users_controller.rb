@@ -1,17 +1,21 @@
+
 class UsersController < ApplicationController
   before_action :authenticate_user,{only:[:index,:show,:edit,:update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]} 
   before_action :ensure_correct_user, {only: [:edit,:update]}
-  
   def index
     @user = User.all
   end
+
   def show
     @user = User.find_by(id: params[:id])
+
   end
+
   def new
     @user = User.new()
   end
+
   def create
     @user = User.new(
       name: params[:name], 
@@ -26,7 +30,8 @@ class UsersController < ApplicationController
     else
       render("/users/new")
     end
-  end 
+  end
+
   def edit
     @user = User.find_by(id: params[:id])
   end
@@ -52,6 +57,7 @@ class UsersController < ApplicationController
   end
 
   def login
+
     # 入力内容と一致するユーザーを取得し、変数@userに代入してください
     @user = User.find_by(email: params[:email])
     # @userが存在するかどうかを判定するif文を作成してください
