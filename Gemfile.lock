@@ -108,7 +108,7 @@ GEM
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    pg (1.1.4)
+    pg (1.2.3)
     public_suffix (3.0.3)
     puma (3.12.6)
     racc (1.5.2)
