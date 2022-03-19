@@ -126,7 +126,7 @@ GEM
     msgpack (1.4.2-java)
     nio4r (2.5.8)
     nio4r (2.5.8-java)
-    nokogiri (1.12.5)
+    nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     nokogiri (1.13.3-java)
