@@ -235,7 +235,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.4)
+    sqlite3 (1.5.2)
+      mini_portile2 (~> 2.8.0)
     strscan (3.0.4)
     strscan (3.0.4-java)
     thor (1.2.1)
@@ -289,7 +290,7 @@ DEPENDENCIES
   sass-rails (~> 6.0)
   selenium-webdriver
   spring (~> 3.0)
-  sqlite3 (~> 1.4.4)
+  sqlite3 (~> 1.5.2)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
