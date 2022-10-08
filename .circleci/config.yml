@@ -7,13 +7,14 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: cimg/ruby:3.1.0-browsers
+      - image: cimg/ruby:3.1.0-browsers
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           DB_USERNAME: 'root'
           DB_PASSWORD: ''
-      - image: circleci/mysql:5.7 
+
+      - image: cimg/mysql:5.7 
         environment:
           MYSQL_ROOT_HOST: '%'
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
