@@ -12,12 +12,12 @@ default: &default
   #encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: password
-  host: db
 
 development:
   <<: *default
 #  database: db/development.sqlite3
+  password: password
+  host: db
   database: app_development
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,6 +25,9 @@ development:
 test:
   <<: *default
   #database: db/test.sqlite3
+  encoding: utf8
+  port: 3306
+  host: '127.0.0.1'
   database: app_test
 
 production:
