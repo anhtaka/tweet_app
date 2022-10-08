@@ -14,7 +14,7 @@ jobs:
           DB_USERNAME: 'root'
           DB_PASSWORD: ''
 
-      - image: cimg/mysql:5.7 
+      - image: circleci/mysql:5.7 
         environment:
           MYSQL_ROOT_HOST: '%'
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
