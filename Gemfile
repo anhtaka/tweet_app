@@ -7,7 +7,10 @@ ruby '3.1.0'
 gem 'rails', '~> 7.0.4'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', group: [:development, :test]
-gem 'sqlite3', '~> 1.4.4', group: [:development, :test]
+#gem 'sqlite3', '~> 1.4.4', group: [:development, :test]
+# Use mysql as the database for Active Record
+gem "mysql2"
+
 gem 'pg', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 5.6'
@@ -55,9 +58,9 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  #gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  #gem 'chromedriver-helper'
   gem 'rspec'
   gem "rspec_junit_formatter"
 end
