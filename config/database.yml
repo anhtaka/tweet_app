@@ -27,6 +27,10 @@ test:
   database: app_test
 
 production:
-  #<<: *default
+  <<: *default
   #database: db/production.sqlite3
-  url: <%= ENV['DATABASE_URL'] %>
+#  url: <%= ENV['DATABASE_URL'] %>
+  database: myapp_development
+  host: <%= ENV['SUPABASE_HOST'] %>
+  username: <%= ENV['SUPABASE_USER'] %>
+  password: <%= ENV['SUPABASE_PASSWORD'] %>
