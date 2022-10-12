@@ -4,24 +4,31 @@ default: &default
 #  adapter: sqlite3
 #  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #  timeout: 5000
-  adapter: mysql2
+  #adapter: mysql2
+#  username: root
   #encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: db
-  username: root
+  adapter: postgresql
+  username: postgres
   password: password
+  encoding: unicode
 
 development:
   <<: *default
-#  database: db/development.sqlite3
   database: app_development
+  #host: db.zstsoyqfqgcdwojajwkw.supabase.co
+  #pool: 5
+  #username: postgres
+  #password: wcz8#QcT2HC3AN3
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  encoding: utf8
+#  encoding: utf8
   database: app_test
 
 production:
