@@ -16,7 +16,7 @@ jobs:
 
       - image: cimg/postgres:14.0
         name: "db"
-        command: mysqld --default-authentication-plugin=mysql_native_password
+        #command: mysqld --default-authentication-plugin=mysql_native_password
         environment:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: "password"
