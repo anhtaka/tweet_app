@@ -139,9 +139,9 @@ GEM
       racc (~> 1.4)
     pg (1.4.4)
     public_suffix (5.0.0)
-    puma (5.6.5)
+    puma (6.0.0)
       nio4r (~> 2.0)
-    puma (5.6.5-java)
+    puma (6.0.0-java)
       nio4r (~> 2.0)
     racc (1.6.0)
     racc (1.6.0-java)
@@ -257,7 +257,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.8)
   mysql2
   pg
-  puma (~> 5.6)
+  puma (~> 6.0)
   rails (~> 7.0.4)
   rspec
   rspec_junit_formatter
