@@ -32,8 +32,8 @@ test:
 production:
   <<: *default
   #database: db/production.sqlite3
-#  url: <%= ENV['DATABASE_URL'] %>
-  database: postgres
-  host: <%= ENV['SUPABASE_HOST'] %>
-  username: <%= ENV['SUPABASE_USER'] %>
-  password: <%= ENV['SUPABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+#  database: <%= ENV['DATABASE'] %>
+#  host: <%= ENV['SUPABASE_HOST'] %>
+#  username: <%= ENV['SUPABASE_USER'] %>
+#  password: <%= ENV['SUPABASE_PASSWORD'] %>
