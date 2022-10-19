@@ -17,23 +17,11 @@ default: &default
 development:
   <<: *default
   database: app_development
-#  host: *****
-#  password: *****
-#  database: postgres
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-#  encoding: utf8
   database: app_test
 
 production:
   <<: *default
-  #database: db/production.sqlite3
-#  url: <%= ENV['DATABASE_URL'] %>
-  database: <%= ENV['SUPABASE_DATABASE'] %>
-  host: <%= ENV['SUPABASE_HOST'] %>
-  username: <%= ENV['SUPABASE_USER'] %>
-  password: <%= ENV['SUPABASE_PASSWORD'] %>
+  url: <%= ENV["DATABASE_URL"] %>
