@@ -27,7 +27,9 @@ jobs:
       - run:
           name: Checkout via HTTPS
           command: |
-            git clone https://github.com/anhtaka/tweet_app.git .
+            git clone "$CIRCLE_REPOSITORY_URL" . || { echo "Git clone failed"; exit 1; }
+            git config user.email "ci@example.com"
+            git config user.name "CircleCI"
       # Download and cache dependencies
       - restore_cache:
           keys:
