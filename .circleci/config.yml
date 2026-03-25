@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: cimg/ruby:3.1.0-browsers
+      - image: cimg/ruby:3.1.7
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
