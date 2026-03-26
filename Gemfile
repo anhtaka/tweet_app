@@ -33,7 +33,7 @@ end
 
 group :development do
   gem 'web-console'
-  gem 'listen', '< 3.8'
+  gem 'listen', '< 3.11'
   # spring は不要のため無効化
   # gem 'spring'
 end
