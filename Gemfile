@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.11'
 gem 'sprockets', '~> 4.0'
 gem 'sprockets-rails', '~> 3.4'
 gem 'sass-rails', '~> 6.0'
+gem 'coffee-rails' # ← この1行を追加
 
 # 起動高速化
 gem 'bootsnap', '>= 1.17', require: false
