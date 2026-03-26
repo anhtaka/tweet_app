@@ -3,6 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
 version: 2.1
+
 jobs:
   build:
     docker:
@@ -10,58 +11,67 @@ jobs:
       - image: cimg/ruby:3.4.7
         environment:
           RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
+          DB_HOST: db
+          DB_USERNAME: postgres
+          DB_PASSWORD: password
 
       - image: cimg/postgres:14.0
-        name: "db"
-        #command: mysqld --default-authentication-plugin=mysql_native_password
+        name: db
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: "password"
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: app_test
+
     working_directory: ~/repo
 
     steps:
       - checkout
 
-      # Download and cache dependencies
+
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v2-dependencies-{{ checksum "Gemfile.lock" }}
+            - v2-dependencies-
 
       - run:
-          name: install dependencies
+          name: install bundler
+          command: gem install bundler -v 2.6.9
+
+      - run:
+          name: bundle install
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle config set path 'vendor/bundle'
+            bundle install --jobs=4 --retry=3
 
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # run tests!
+      - run:
+          name: wait for DB
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z db 5432 && echo "DB ready" && exit 0
+              sleep 1
+            done
+            echo "DB not ready" && exit 1
+
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+
       - run:
           name: run tests
           command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
-
+            mkdir -p /tmp/test-results
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml
       # collect reports
       - store_test_results:
           path: /tmp/test-results
+
       - store_artifacts:
           path: /tmp/test-results
-          destination: test-results
