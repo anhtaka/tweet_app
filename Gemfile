@@ -8,7 +8,7 @@ gem 'rails', '~> 7.1'
 gem 'pg'  # ← Renderは基本これ
 
 # サーバ
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 7.2'
 
 # JSON
 gem 'jbuilder', '~> 2.11'
