@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.4.7'  # ← 安定版に下げる（重要）
 
-gem 'rails', '~> 7.1'
+gem 'rails', '~> 8.1'
 
 # DB（どちらか1つにする）
 gem 'pg'  # ← Renderは基本これ
