@@ -11,7 +11,7 @@ gem 'pg'  # ← Renderは基本これ
 gem 'puma', '~> 8.0'
 
 # JSON
-gem 'jbuilder', '~> 2.11'
+gem 'jbuilder', '~> 2.15'
 
 # Asset Pipeline (Rails 7+ で明示的に有効化)
 gem 'sprockets', '~> 4.0'
